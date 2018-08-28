@@ -33,7 +33,7 @@
             Case Keys.Left
                 If status = "under_park" And car.Right < pic_exit.Left Then
                     status = "out_park"
-                ElseIf status = "area" And car.Right < pic_entra.Left Then
+                ElseIf status = "area" And car.Left < pic_entra.Right Then
                     status = "under_park"
                 ElseIf car.Left > 0 Then
                     car.Image = car_left.Image
@@ -72,7 +72,7 @@
                         status = "under_park"
                     End If
                 ElseIf status = "under_park" Then
-                    If car.Right > pic_entra.Right Then
+                    If car.Left > pic_entra.Right Then
                         status = "area"
                     Else
                         car.Image = car_right.Image
@@ -82,74 +82,141 @@
 
 
             Case Keys.Enter
-                If car.Left > 720 And car.Right < 840 Then
-                    If car.Top < 52 Then
-                        car5.Image = car.Image
-                        car5.Visible = True
-                    ElseIf car.Top > 224 And car.Top + car.Height < 314 Then
+
+
+                If status = "in_park" Then
+
+
+                    If car.Left > 720 And car.Right < 840 Then
+                        If car.Top < 52 Then
+                            If car5.Visible = False Then
+                                car5.Image = car.Image
+                                car5.Visible = True
+                                'MessageBox.Show("")
+                            Else
+                                park += 1 '此停車格已經有車
+                            End If
+                            'ElseIf car.Top > 224 And car.Top + car.Height < 314 Then
+                            '    park += 1 '沒停好會被趕出去
+                        ElseIf car.Top > 447 Then
+                            If car13.Visible = False Then
+                                car13.Image = car.Image
+                                car13.Visible = True
+                            Else
+                                park += 1
+                            End If
+                        Else
+                            park += 1
+                        End If
+
+                    ElseIf car.Left > 594 And car.Right < 714 Then
+                        If car.Top < 52 Then
+                            If car4.Visible = False Then
+                                car4.Image = car.Image
+                                car4.Visible = True
+                            Else
+                                park += 1
+                            End If
+                        ElseIf car.Top > 224 And car.Top + car.Height < 314 Then
+                            If car8.Visible = False Then
+                                car8.Image = car.Image
+                                car8.Visible = True
+                            Else
+                                park += 1
+                            End If
+                        ElseIf car.Top > 447 Then
+                            If car12.Visible = False Then
+                                car12.Image = car.Image
+                                car12.Visible = True
+                            Else
+                                park += 1
+                            End If
+                        Else
+                            park += 1
+                        End If
+
+                    ElseIf car.Left > 468 And car.Right < 588 Then
+                        If car.Top < 52 Then
+                            If car3.Visible = False Then
+                                car3.Image = car.Image
+                                car3.Visible = True
+                            Else
+                                park += 1
+                            End If
+                        ElseIf car.Top > 224 And car.Top + car.Height < 314 Then
+                            If car7.Visible = False Then
+                                car7.Image = car.Image
+                                car7.Visible = True
+                            Else
+                                park += 1
+                            End If
+                        ElseIf car.Top > 447 Then
+                            If car11.Visible = False Then
+                                car11.Image = car.Image
+                                car11.Visible = True
+                            Else
+                                park += 1
+                            End If
+                        Else
+                            park += 1
+                        End If
+
+                    ElseIf car.Left > 342 And car.Right < 462 Then
+                        If car.Top < 52 Then
+                            If car2.Visible = False Then
+                                car2.Image = car.Image
+                                car2.Visible = True
+                            Else
+                                park += 1
+                            End If
+                        ElseIf car.Top > 224 And car.Top + car.Height < 314 Then
+                            If car6.Visible = False Then
+                                car6.Image = car.Image
+                                car6.Visible = True
+                            Else
+                                park += 1
+                            End If
+                        ElseIf car.Top > 447 Then
+                            If car10.Visible = False Then
+                                car10.Image = car.Image
+                                car10.Visible = True
+                            Else
+                                park += 1
+                            End If
+                        Else
+                            park += 1
+                        End If
+
+                    ElseIf car.Left > 216 And car.Right < 336 Then
+                        If car.Top < 52 Then
+                            If car1.Visible = False Then
+                                car1.Image = car.Image
+                                car1.Visible = True
+                            Else
+                                park += 1
+                            End If
+                            'ElseIf car.Top > 224 And car.Top + car.Height < 314 Then
+                            '    park += 1 '沒停好會被趕出去
+                        ElseIf car.Top > 447 Then
+                            If car9.Visible = False Then
+                                car9.Image = car.Image
+                                car9.Visible = True
+                            Else
+                                park += 1
+                            End If
+                        Else
+                            park += 1
+                        End If
+
+                    Else
                         park += 1 '沒停好會被趕出去
-                    ElseIf car.Top > 447 Then
-                        car13.Image = car.Image
-                        car13.Visible = True
-                    End If
-
-                ElseIf car.Left > 594 And car.Right < 714 Then
-                    If car.Top < 52 Then
-                        car4.Image = car.Image
-                        car4.Visible = True
-                    ElseIf car.Top > 224 And car.Top + car.Height < 314 Then
-                        car8.Image = car.Image
-                        car8.Visible = True
-                    ElseIf car.Top > 447 Then
-                        car12.Image = car.Image
-                        car12.Visible = True
-                    End If
-
-                ElseIf car.Left > 468 And car.Right < 588 Then
-                    If car.Top < 52 Then
-                        car3.Image = car.Image
-                        car3.Visible = True
-                    ElseIf car.Top > 224 And car.Top + car.Height < 314 Then
-                        car7.Image = car.Image
-                        car7.Visible = True
-                    ElseIf car.Top > 447 Then
-                        car11.Image = car.Image
-                        car11.Visible = True
-                    End If
-
-                ElseIf car.Left > 342 And car.Right < 462 Then
-                    If car.Top < 52 Then
-                        car2.Image = car.Image
-                        car2.Visible = True
-                    ElseIf car.Top > 224 And car.Top + car.Height < 314 Then
-                        car6.Image = car.Image
-                        car6.Visible = True
-                    ElseIf car.Top > 447 Then
-                        car10.Image = car.Image
-                        car10.Visible = True
-                    End If
-
-                ElseIf car.Left > 216 And car.Right < 336 Then
-                    If car.Top < 52 Then
-                        car1.Image = car.Image
-                        car1.Visible = True
-                    ElseIf car.Top > 224 And car.Top + car.Height < 314 Then
-                        park += 1 '沒停好會被趕出去
-                    ElseIf car.Top > 447 Then
-                        car9.Image = car.Image
-                        car9.Visible = True
-                    End If
-
-                Else
-                    park += 1 '沒停好會被趕出去
-                    If park > 0 Then
-                        pic_stop.Visible = False
                     End If
                 End If
 
                 If park = 0 Then '當車位已滿
                     car.Visible = False
                 Else
+                    pic_stop.Visible = False
                     car.Location = New Point(958, 243)
                     car.Image = car_left.Image
                     status = "area"
@@ -168,12 +235,15 @@
                 End If
 
         End Select
-
         Label1.Text = status
         lbl_show.Text = park.ToString()
     End Sub
 
     Private Sub car1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles car1.Click
+        If status = "in_park" And park > 0 Then
+            park += 1
+            lbl_show.Text = park.ToString()
+        End If
         status = "in_park"
         car.Location = car1.Location
         car.Image = car1.Image
@@ -182,6 +252,10 @@
     End Sub
 
     Private Sub car2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles car2.Click
+        If status = "in_park" And park > 0 Then
+            park += 1
+            lbl_show.Text = park.ToString()
+        End If
         status = "in_park"
         car.Location = car2.Location
         car.Image = car2.Image
@@ -190,6 +264,10 @@
     End Sub
 
     Private Sub car3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles car3.Click
+        If status = "in_park" And park > 0 Then
+            park += 1
+            lbl_show.Text = park.ToString()
+        End If
         status = "in_park"
         car.Location = car3.Location
         car.Image = car3.Image
@@ -198,6 +276,10 @@
     End Sub
 
     Private Sub car4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles car4.Click
+        If status = "in_park" And park > 0 Then
+            park += 1
+            lbl_show.Text = park.ToString()
+        End If
         status = "in_park"
         car.Location = car4.Location
         car.Image = car4.Image
@@ -206,6 +288,10 @@
     End Sub
 
     Private Sub car5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles car5.Click
+        If status = "in_park" And park > 0 Then
+            park += 1
+            lbl_show.Text = park.ToString()
+        End If
         status = "in_park"
         car.Location = car5.Location
         car.Image = car5.Image
@@ -214,6 +300,10 @@
     End Sub
 
     Private Sub car6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles car6.Click
+        If status = "in_park" And park > 0 Then
+            park += 1
+            lbl_show.Text = park.ToString()
+        End If
         status = "in_park"
         car.Location = car6.Location
         car.Image = car6.Image
@@ -222,6 +312,10 @@
     End Sub
 
     Private Sub car7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles car7.Click
+        If status = "in_park" And park > 0 Then
+            park += 1
+            lbl_show.Text = park.ToString()
+        End If
         status = "in_park"
         car.Location = car7.Location
         car.Image = car7.Image
@@ -230,6 +324,10 @@
     End Sub
 
     Private Sub car8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles car8.Click
+        If status = "in_park" And park > 0 Then
+            park += 1
+            lbl_show.Text = park.ToString()
+        End If
         status = "in_park"
         car.Location = car8.Location
         car.Image = car8.Image
@@ -238,6 +336,10 @@
     End Sub
 
     Private Sub car9_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles car9.Click
+        If status = "in_park" And park > 0 Then
+            park += 1
+            lbl_show.Text = park.ToString()
+        End If
         status = "in_park"
         car.Location = car9.Location
         car.Image = car9.Image
@@ -246,6 +348,10 @@
     End Sub
 
     Private Sub car10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles car10.Click
+        If status = "in_park" And park > 0 Then
+            park += 1
+            lbl_show.Text = park.ToString()
+        End If
         status = "in_park"
         car.Location = car10.Location
         car.Image = car10.Image
@@ -254,6 +360,10 @@
     End Sub
 
     Private Sub car11_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles car11.Click
+        If status = "in_park" And park > 0 Then
+            park += 1
+            lbl_show.Text = park.ToString()
+        End If
         status = "in_park"
         car.Location = car11.Location
         car.Image = car11.Image
@@ -262,6 +372,10 @@
     End Sub
 
     Private Sub car12_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles car12.Click
+        If status = "in_park" And park > 0 Then
+            park += 1
+            lbl_show.Text = park.ToString()
+        End If
         status = "in_park"
         car.Location = car12.Location
         car.Image = car12.Image
@@ -270,6 +384,10 @@
     End Sub
 
     Private Sub car13_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles car13.Click
+        If status = "in_park" And park > 0 Then
+            park += 1
+            lbl_show.Text = park.ToString()
+        End If
         status = "in_park"
         car.Location = car13.Location
         car.Image = car13.Image
